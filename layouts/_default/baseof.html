@@ -1,9 +1,30 @@
 <!DOCTYPE html>
-<html lang="{{ .Language.Lang }}">
+<html lang="{{ .Language.Lang }}" class="dark:bg-zinc-800 bg-zinc-800">
+
 <head>
     {{ partial "head.html" . }}
 </head>
-<body>
-{{ block "main" . }}{{ end }}
+
+<body class="dark min-h-screen">
+    <div class="w-full min-h-screen dark:bg-zinc-800 bg-zinc-100">
+        {{ partial "nav.html" . }}
+        {{ block "main" . }}{{ end }}
+    </div>
 </body>
+
 </html>
+
+<script>
+    var vueApp = Vue.createApp({
+        data() {
+            return {
+                display: 'Salut Lumeeeeee'
+            }
+        },
+        delimiters: ['[[', ']]'],
+    }).mount('#nav-app');
+
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+    }
+</script>

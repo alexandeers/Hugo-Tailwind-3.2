@@ -1,0 +1,19 @@
+{{ define "main" }}
+    {{ $posts := where .Site.RegularPages "Type" "post" }}
+    {{ $filteredPosts := where $posts "Section" "posts" }}
+
+    {{ $paginator := .Paginate $filteredPosts }}
+
+    {{ range $paginator.Pages }}
+
+    <div class="flex flex-col items-center justify-center p-20 m-0 w-1">
+        <div class="flex flex-col items-center justify-center w-full h-full max-w-4xl px-4 py-8 mx-auto space-y-4">
+            <h1 class="text-4xl font-bold text-zinc-900 dark:text-zinc-100">{{ .Title }}</h1>
+            <p class="text-xl text-gray-700">{{ .Description }}</p>
+            <a href="{{ .Permalink }}" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700">Read more</a>
+        </div>
+        <!-- Create a horizontal line -->
+        <hr class="w-full h-1 my-4 bg-gray-200">
+    </div>
+    {{ end }}
+{{ end }}

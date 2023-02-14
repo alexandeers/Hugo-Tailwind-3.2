@@ -1,10 +1,11 @@
 {{define "main"}}
-<div class="m-6 text-5xl text-cyan-800">
-  <h1>{{ .Title }}</h1>
+<div class="min-w-full min-h-full pt-40 mx-auto">
+  <div class="text-5xl text-zinc-200 mx-auto text-left">
+    <h1>{{ .Title }}</h1>
+  </div>
+
+  <article class="prose mx-auto dark:prose-invert">
+    {{ .Content }}
+  </article>
 </div>
-
-<article class="m-6 prose">
-  {{ .Content }}
-</article>
-
 {{end}}

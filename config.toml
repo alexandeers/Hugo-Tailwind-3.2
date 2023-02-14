@@ -1,12 +1,13 @@
 baseURL = '/'
 languageCode = 'en-us'
-title = 'Hugo & Tailwind 3.0'
+title = 'Alexanders hemsida'
 disableKinds = ["taxonomy","taxonomyTerm"]
+
+sectionPagesMenu = "main"
+
+paginate = 12
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
-
-
-
