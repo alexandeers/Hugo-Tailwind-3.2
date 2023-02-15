@@ -3,6 +3,10 @@ title: "Abstrakt Flyer"
 date: 2023-02-14T14:23:44+01:00
 draft: false
 type: post
+description: Min abstrakta flyer och genomgång om hur jag gjorde den.
+tags: [uppgift]
+categories: [digitaltskapande]
+
 ---
 ___
 

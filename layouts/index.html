@@ -1,7 +1,18 @@
 {{ define "main" }}
-<main class="min-h-screen mx-auto flex place-items-center min-w-full">
+{{ $image := resources.Get "images/pattern.jpg" }}
+<main class="min-h-screen mx-auto flex flex-col place-items-center min-w-full">
 
-{{ partial "posts.html" . }}
+    <div
+        class="min-h-[90vh] min-w-full prose dark:prose-invert flex place-items-center bg-light-gradient dark:bg-dark-gradient">
+        <div
+            class="flex flex-col relative mx-auto text-center w-auto h-auto font-lato gap-2 before:w-full before:h-[2px] before:bottom-[-1rem] before:left-0 before:bg-zinc-100 before:absolute before:content-['']">
+            <h1 class="mx-auto text-9xl m-0 font-bold italic font-montalt text-zinc-100">hello</h1>
+            <p class="rounded p-0 m-0 text-zinc-100/[0.7] text-3xl h-min">Welcome to my website!</p>
+        </div>
+    </div>
+    <div class="min-h-[90vh] min-w-full prose dark:prose-invert flex place-items-center bg-zinc-100 dark:bg-zinc-800 ">
+        <p class="mx-auto">hej</p>
+    </div>
 
 </main>
-{{ end }} 
+{{ end }}

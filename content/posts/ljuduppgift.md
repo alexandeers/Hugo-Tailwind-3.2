@@ -3,22 +3,25 @@ title: "Ljuduppgift"
 date: 2023-02-14T14:06:49+01:00
 draft: false
 type: post
+description: Egen musik för Kung Fu Panda scen
+tags: [uppgift]
+categories: [digitaltskapande]
 ---
 ___
-## Introduktion - Oogway Ascends
+# Introduktion - Oogway Ascends
 Jag har valt att göra om ljudet i "Oogway Ascends"-scenen i **Kung Fu Panda 1**.  
 
-### Scenen:
+## Scenen
 > <iframe width="560" height="315" src="https://www.youtube.com/embed/hYAQtEs2Img" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   
-### Låten:
+## Låten
 > <audio controls style="width: 100%;"> <source src="/Inner_Peacev20.mp3"> </audio>
 
-### Videon - (kvalitén är lite för dålig pga komprimering, fixar sen) (märks vid slutet)
+## Videon - (kvalitén är lite för dålig pga komprimering, fixar sen) (märks vid slutet)
 > <iframe width="100%" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/rbSkqb0mhRA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ***
 
-<h1 style="background-color: var(--mask-bg); padding: 0.75em; border-radius: 6px;"><b>Min arbetsprocess inom FL Studio</b></h1>
+# Min arbetsprocess inom FL-Studio
 
 När vi fick ljuduppgiften så fick jag idén om att producera något lugnt, i form av en orkester.  
 Jag funderade över vilka filmer som oftast har vackra scener, och tänkte på Kung Fu Panda.  
@@ -36,14 +39,14 @@ Oogway yttrar sina allra sista ord med vishet till Shifu, i förberedelse för s
 
 Ackorden följer därmed ett enkelt mönster som alternerar mellan dur och moll, och bryts av den sista delen för en mer majestätisk effekt då Oogway försvinner.
 
->### **Låtstrukturen:**
+>## Låtstrukturen
 >
 > **Skala:** A Harmonic Minor / Harmonisk Moll  
 > **Ackordföljd:**  
 > E **-** Am/E  **(4 bars)**  
 > E **-** Am **-** Am/B **-** C/A **-** D/B **-** E
 
-> ### **Exempel på instrument som användes och deras syften i min låt**
+> ### Exempel på instrument som användes och deras syften i min låt
 >
 > - **Violin & viola** - *bra fundament, täcker ackorden samt en del av melodin*
 > - **Cello** - *perfekt för en stark melodi som bygger på violinerna*
@@ -84,22 +87,22 @@ De flesta ljudeffekterna var av låg kvalité, men det kan man oftast åtgärda 
 > **Delay** - spelar upp signalen om och om igen med jämna intervaller för att simulera eko.
 {: .prompt-tip }
 
-<h1 style="background-color: var(--mask-bg); padding: 0.75em; border-radius: 6px;"><b>Reflektion och tankar kring arbetet</b></h1>
+# Reflektion och tankar kring arbetet
 Jag är väldigt, väldigt nöjd med slutresultatet. Det har varit extremt roligt att producera musik, eftersom det är min hobby och är väldigt rogivande när man inte har något annat för sig. Uppgiften har varit lika rolig som att göra flyern, och Simon gjorde även ett skitbra jobb med att göra voiceover för Oogway (inlevelsen är bättre än originalscenen i min åsikt!)  
 Det var min allra första gång jag försökte ge mig på orkester, och jag tyckte det blev oerhört vackert i slutändan. Jag ville satsa på en kontrast, med en *dramatisk* orkester i bakgrunden som stödjer det *löjliga* jag och Simon säger.
 
-### **Ljuddesign**
+## Ljuddesign
 Ljudeffekterna var lite jobbiga att få till, men lade till väldigt mycket till scenens integritet. Det jobbigaste var att balansera ljudnivåerna, eftersom i slutet så gjorde jag en fet **"chord-stack"**, alltså väldigt många noter spelas samtidigt av flera instrument, och det ledde till mycket frekvenskrock mellan instrumenten. Oftast så behöver man inte bearbeta orkestraljud så mycket, men nu var jag tvungen att lägga krut på mixningen. Det bästa sättet att ge instrument sin egen plats i mixen är genom att använda EQ och ta bort "onödiga" frekvenser, som t.ex. basfrekvenser i ljusa violiner, och diskanten på kontrabasen. Då lät det mycket bättre och tydligare, samt förenklade hela processen.
 
-### **Voiceover**
+## Voiceover
 När jag spelade in rösten för Shifu så blev jag missnöjd många gånger, och tog om allting för att få bättre inlevelse. Tillslut hade jag inte så mycket tid kvar, och rullade med det jag hade innan inlämningen. Eftersom Oogway och Shifu inte är så artikulerade när det gäller animationen så var det enkelt att lipsynca. Det man behövde tänka på var att se till så voiceoverns längd matchade med perioden då Oogway/Shifus mun rörde på sig.
 
-#### **Småfel och hinder**
+### Småfel och hinder
 Det blev lite småfel här och där, som att t.ex. Simons röst blev lite "ihålig" ibland och klippte på konstiga ställen, men det var för att han inte hade sett scenen innan vi började spela in och behövde anpassa sitt tal på några få försök.  
 I stort sett så blev det perfekt, men två noterbara fel är när t.ex. Oogway säger *"det finns inga olyckor"* så råkade Simon dra ut på "olyckor" och jag var tvungen att klippa det. I slutet av scenen så råkade jag ha med när jag svor, och det var för att jag råkade säga fel och glömde byta ut det. Det hördes inte det med hörlurarna på, och jag har märkt att ljudet är väldigt annorlunda mellan högtalare och hörlurar, vilket ledde till att jag behövde balansera ljudet ytterligare en gång för att se till så rösterna hördes ordentligt.  
 Skälet till varför Simons röst lät "ihålig" ibland berodde på att jag använde en algoritm som stretchar hans röst för att antingen blir längre eller kortare men behåller samma tonhöjd.
 > När man förlänger/förkortar ett ljudklipp så stretchas även ljudvågorna, och därmed ökar/minskar även frekvensen, vilket leder till ökad/minskad tonhöjd. Om man vill behålla exakt samma tonhöjd så kan man utnyttja en algoritm som reglerar tonhöjden i förhållande till längden på ljudklippet, men det resulterar i försämrad ljudkvalité.
 {: .prompt-info }
 
-#### **Sista kommentar**
+### Sista kommentar
 Jag hoppas verkligen att vi får möjlighet att jobba på fler ljuduppgifter i Digitalt Skapande 2, helst något som har med musik att göra, för det tycker jag är skitkul!

@@ -1,11 +1,19 @@
 {{define "main"}}
-<div class="min-w-full min-h-full pt-40 mx-auto">
-  <div class="text-5xl text-zinc-200 mx-auto text-left">
-    <h1>{{ .Title }}</h1>
+<div class="min-w-full min-h-full mx-auto">
+  <div
+    class="min-h-[40vh] min-w-full prose dark:prose-invert flex place-items-center bg-light-gradient dark:bg-dark-gradient bg-no-repeat bg-top bg-fixed bg-cover">
+    <h1 class="mx-auto text-8xl italic text-zinc-100 select-none"> {{.Title}} </h1>
   </div>
 
-  <article class="prose mx-auto dark:prose-invert">
-    {{ .Content }}
-  </article>
+  <div class="grid grid-cols-8">
+    <article class="prose mx-auto dark:prose-invert col-span-2">
+    </article>
+    <article class="prose mx-auto dark:prose-invert col-span-4 max-w-full p-0">
+      {{ .Content }}
+    </article>
+    <article class="prose mx-auto dark:prose-invert col-span-2">
+      {{ .TableOfContents }}
+    </article>
+  </div>
 </div>
 {{end}}

@@ -6,13 +6,25 @@
 
 /* custom styles */
 @layer components {
-
     .nav-link {
-        @apply block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent;
+        @apply duration-100 block py-2 pl-3 pr-4 text-zinc-600 rounded hover:bg-zinc-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-zinc-200/[0.75] md:dark:hover:text-white dark:hover:bg-zinc-700 dark:hover:text-white md:dark:hover:bg-transparent;
     }
 
     .nav-link-selected {
-        @apply block py-2 pl-3 pr-4 text-blue-700 bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 dark:text-white border-orange-400 border-b-2 rounded-none;
+        @apply block py-2 pl-3 pr-4 text-zinc-800 bg-blue-700 md:bg-transparent md:p-0 dark:text-white dark:border-orange-400 border-b rounded-none border-[#3a47d5];
     }
 
+    body * {
+        @apply transition-colors duration-200;
+    }
+
+    #TableOfContents {
+        @apply text-sm font-sans no-underline;
+    }
+
+    #TableOfContents > ul > li > a { @apply text-lg; }
+
+    #TableOfContents > ul > li > ul > li a { @apply text-base font-extralight; }
+
+    #TableOfContents a { @apply no-underline; }
 }
