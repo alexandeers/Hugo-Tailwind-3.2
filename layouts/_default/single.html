@@ -5,15 +5,62 @@
     <h1 class="mx-auto text-8xl italic text-zinc-100 select-none"> {{.Title}} </h1>
   </div>
 
-  <div class="grid grid-cols-8">
-    <article class="prose mx-auto dark:prose-invert col-span-2">
-    </article>
-    <article class="prose mx-auto dark:prose-invert col-span-4 max-w-full p-0">
+  <div class="bg-zinc-100 dark:bg-zinc-900/[1] bg-cover bg-repeat grid grid-cols-8">
+    <div class="prose mx-auto dark:prose-invert col-span-2 prose-zinc">
+    </div>
+    <div id="middle-content"
+      class="p-8 shadow-xl border-2 border-solid border-zinc-900/[0.1] dark:border-zinc-400/[0.1] rounded prose prose-zinc dark:prose-p:text-zinc-400 prose-p:text-zinc-600 prose-blockquote:text-zinc-500 prose-blockquote:font-normal prose-blockquote:!not-italic font-sans mx-auto dark:prose-invert col-span-4 bg-zinc-50 dark:bg-zinc-800/[0.5] max-w-full m-2">
       {{ .Content }}
-    </article>
-    <article class="prose mx-auto dark:prose-invert col-span-2">
-      {{ .TableOfContents }}
-    </article>
+    </div>
+    <div id="toc-parent" class="prose prose-zinc mx-auto dark:prose-invert col-span-2 h-full overflow-visible w-full">
+      <div id="toc" class="sticky top-32 h-min mt-4">
+        {{ .TableOfContents }}
+      </div>
+    </div>
   </div>
 </div>
+
+<script>
+  //Create an intersection observer for each header in the #middle-content, and subsequently highlight all corresponding TOC items in view
+  const headers = document.querySelectorAll(
+    '#middle-content h1, #middle-content h2, #middle-content h3, #middle-content h4, #middle-content h5, #middle-content h6'
+  );
+  const tocItems = document.querySelectorAll('#toc a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      if (entry.intersectionRatio > 0) {
+        tocItems.forEach(item => {
+          if (item.getAttribute('href') == '#' + id) {
+            item.classList.add('toc-item-selected');
+            item.classList.remove('toc-item');
+            item.closest('li').classList.add('toc-item-selected')
+            item.closest('li').classList.remove('toc-item');
+          }
+        });
+      } else {
+        tocItems.forEach(item => {
+          if (item.getAttribute('href') == '#' + id) {
+            item.classList.remove('toc-item-selected');
+            item.classList.add('toc-item');
+            item.closest('li').classList.remove('toc-item-selected')
+            item.closest('li').classList.add('toc-item');
+
+          }
+        });
+      }
+    });
+  });
+
+  headers.forEach((header) => {
+    observer.observe(header);
+  });
+</script>
+
+<style>
+      .lol {
+        color: #4dbb5f33;
+    }
+</style>
 {{end}}

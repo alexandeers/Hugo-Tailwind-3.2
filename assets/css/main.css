@@ -18,8 +18,75 @@
         @apply transition-colors duration-200;
     }
 
+    .nav-scrolled {
+        /* 
+        nav.classList.add('bg-zinc-100/[1]');
+        nav.classList.add('dark:bg-zinc-800/[1]');
+        nav.classList.add('py-6');
+        nav.classList.add('drop-shadow-xl'); */
+        @apply bg-zinc-100/[1] dark:bg-zinc-800/[1] py-4 drop-shadow-xl border-b-2 border-solid border-zinc-600/[0.2] dark:border-zinc-50/[0.05];
+    }
+
+    .nav-scrolled #title {
+        /*
+        title.classList.add('text-4xl')
+        title.classList.add('text-transparent')
+        title.classList.add('bg-clip-text')
+        title.classList.add('dark:bg-dark-gradient')
+        title.classList.add('bg-light-gradient') */
+        @apply text-4xl text-transparent bg-clip-text dark:bg-dark-gradient bg-light-gradient;
+    }
+
+    .nav-rested {
+        @apply py-6 border-zinc-900/[0.1] dark:border-zinc-50/[0.1];
+    }
+
+    .prompt-tip {
+        @apply bg-[#4dbb5f33] pl-2 flex flex-row dark:!text-zinc-400 !text-zinc-900/[0.8] p-[0.1rem] px-5 rounded border-none before:!content-['\e0f0'] before:!font-icons before:my-auto before:p-2 before:px-4 before:text-2xl before:h-full;
+    }
+
+    .prompt-info {
+        @apply bg-[#073b68cc] pl-2 flex flex-row dark:!text-zinc-400 !text-zinc-100/[0.8] p-[0.1rem] px-5 rounded border-none before:!content-['\e88e'] before:!font-icons before:my-auto before:p-2 before:px-4 before:text-2xl before:h-full;
+    }
+
+    .prompt-info p {
+        @apply dark:!text-zinc-400 !text-zinc-100/[0.8] before:!content-[''] after:!content-[''];
+    }
+
+    .prompt-tip p {
+        @apply before:!content-[''] after:!content-[''];
+    }
+
+    strong {
+        @apply !transition-all !delay-[0s];
+    }
+
+    .nav-rested #title {
+        @apply text-4xl;
+    }
+
     #TableOfContents {
-        @apply text-sm font-sans no-underline;
+        @apply text-sm font-sans no-underline sticky top-0 h-min ml-4;
+    }
+
+    #TableOfContents li {
+        @apply list-none m-0 p-0 border-[0px] border-solid !border-zinc-800 dark:border-zinc-900;
+    }
+
+    #TableOfContents a {
+        @apply text-base m-0 p-0 px-4 break-all;
+    }
+
+    #TableOfContents li > ul > li > a {
+        @apply before:pr-4 before:content-[''];
+    }
+
+    #TableOfContents li > ul > li > ul > li > a {
+        @apply before:pr-8 before:content-[''];
+    }
+
+    #TableOfContents ul {
+        @apply m-0 p-0;
     }
 
     #TableOfContents > ul > li > a { @apply text-lg; }
@@ -27,4 +94,16 @@
     #TableOfContents > ul > li > ul > li a { @apply text-base font-extralight; }
 
     #TableOfContents a { @apply no-underline; }
+
+    .toc-item-selected {
+        @apply transition-all before:transition-all;
+    }
+
+    .toc-item-selected > a {
+        @apply relative dark:text-zinc-50 text-sky-800 !border-l;
+    }
+
+    .toc-item {
+        @apply dark:text-zinc-500 text-zinc-700;
+    }
 }

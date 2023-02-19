@@ -7,7 +7,6 @@ description: Egen musik för Kung Fu Panda scen
 tags: [uppgift]
 categories: [digitaltskapande]
 ---
-___
 # Introduktion - Oogway Ascends
 Jag har valt att göra om ljudet i "Oogway Ascends"-scenen i **Kung Fu Panda 1**.  
 
@@ -17,7 +16,7 @@ Jag har valt att göra om ljudet i "Oogway Ascends"-scenen i **Kung Fu Panda 1**
 ## Låten
 > <audio controls style="width: 100%;"> <source src="/Inner_Peacev20.mp3"> </audio>
 
-## Videon - (kvalitén är lite för dålig pga komprimering, fixar sen) (märks vid slutet)
+## Videon
 > <iframe width="100%" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/rbSkqb0mhRA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ***
 
@@ -46,7 +45,7 @@ Ackorden följer därmed ett enkelt mönster som alternerar mellan dur och moll,
 > E **-** Am/E  **(4 bars)**  
 > E **-** Am **-** Am/B **-** C/A **-** D/B **-** E
 
-> ### Exempel på instrument som användes och deras syften i min låt
+> ### Exempel på instrument och deras syften i min låt
 >
 > - **Violin & viola** - *bra fundament, täcker ackorden samt en del av melodin*
 > - **Cello** - *perfekt för en stark melodi som bygger på violinerna*
@@ -66,17 +65,17 @@ Det tredje och sista steget i FL-Studio var att lägga på en liten EQ för att 
 Sedan så lade jag in ljudfilen i en [AI-röstprocessor från Adobe](https://podcast.adobe.com/enhance) vilket gör rösten extremt tydlig och får bort allt övrigt oljud.
 
 > **Compressor** - ett verktyg som minskar dynamiken (skillnaden i ljudnivå) genom att trycka ihop signalen.
-{: .prompt-tip }
+{ .prompt-tip }
 > **Distortion** - ett verktyg som används för att amplifiera ljudsignalen, men kan även användas som benämning för andra orelaterade förvrängningar till ljudsignalen.
-{: .prompt-tip }
+{ .prompt-tip }
 > **Parametrisk equalizer** - ett grafiskt gränssnitt på alla frekvenser med 3-7 band som låter en öka eller minska volymen på respektive frekvenser.
-{: .prompt-tip }
+{ .prompt-tip }
 
 # Ambience
 Det är viktigt med ambience i en scen, eftersom annars så känns det väldigt tyst när det endast är röster som pratar. Jag har både musikalisk ambience och naturlig ambience. Den musikaliska ambiencen är dämpade "bells" och en **pad**. Den naturliga ambiencen är vind, och nattdjur som syrsor och ugglor, samt löv som prasslar.
 
 > **Pad** - ett väldigt mjukt ljud som används väldigt ofta för ambience i musik och diverse filmer.
-{: .prompt-tip }
+{ .prompt-tip }
 
 ## Övriga ljudeffekter
 
@@ -85,7 +84,7 @@ När Shifu kastar upp och skär frukten använde jag ett wooosh-ljud respektive 
 Det finns även dämpade fotsteg i början av scenen, när Shifu bestiger trappan.
 De flesta ljudeffekterna var av låg kvalité, men det kan man oftast åtgärda med hjälp av lite "*compression & distortion*" -plugins.
 > **Delay** - spelar upp signalen om och om igen med jämna intervaller för att simulera eko.
-{: .prompt-tip }
+{ .prompt-tip }
 
 # Reflektion och tankar kring arbetet
 Jag är väldigt, väldigt nöjd med slutresultatet. Det har varit extremt roligt att producera musik, eftersom det är min hobby och är väldigt rogivande när man inte har något annat för sig. Uppgiften har varit lika rolig som att göra flyern, och Simon gjorde även ett skitbra jobb med att göra voiceover för Oogway (inlevelsen är bättre än originalscenen i min åsikt!)  
@@ -102,7 +101,7 @@ Det blev lite småfel här och där, som att t.ex. Simons röst blev lite "ihål
 I stort sett så blev det perfekt, men två noterbara fel är när t.ex. Oogway säger *"det finns inga olyckor"* så råkade Simon dra ut på "olyckor" och jag var tvungen att klippa det. I slutet av scenen så råkade jag ha med när jag svor, och det var för att jag råkade säga fel och glömde byta ut det. Det hördes inte det med hörlurarna på, och jag har märkt att ljudet är väldigt annorlunda mellan högtalare och hörlurar, vilket ledde till att jag behövde balansera ljudet ytterligare en gång för att se till så rösterna hördes ordentligt.  
 Skälet till varför Simons röst lät "ihålig" ibland berodde på att jag använde en algoritm som stretchar hans röst för att antingen blir längre eller kortare men behåller samma tonhöjd.
 > När man förlänger/förkortar ett ljudklipp så stretchas även ljudvågorna, och därmed ökar/minskar även frekvensen, vilket leder till ökad/minskad tonhöjd. Om man vill behålla exakt samma tonhöjd så kan man utnyttja en algoritm som reglerar tonhöjden i förhållande till längden på ljudklippet, men det resulterar i försämrad ljudkvalité.
-{: .prompt-info }
+{ .prompt-info }
 
 ### Sista kommentar
 Jag hoppas verkligen att vi får möjlighet att jobba på fler ljuduppgifter i Digitalt Skapande 2, helst något som har med musik att göra, för det tycker jag är skitkul!

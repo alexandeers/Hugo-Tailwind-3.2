@@ -1,7 +1,9 @@
-<nav id="nav-app" class="border-zinc-200 px-2 sm:px-4 py-10 fixed w-full">
+<nav id="nav-app" class="px-2 sm:px-4 fixed w-full transition-all z-50">
 	<div class="container flex flex-wrap items-center justify-between mx-auto">
 		<a href="/" class="flex items-center my-auto">
-			<p class="text-5xl italic font-montalt font-extrabold text-zinc-100 my-auto ml-8 drop-shadow-md">alexander</p>
+			<p id="title"
+				class="italic font-montalt font-extrabold text-zinc-100 my-auto ml-0 drop-shadow-md transition-all">
+				alexander</p>
 		</a>
 		<button data-collapse-toggle="navbar-default" type="button"
 			class="inline-flex mr-8 items-center p-2 ml-3 text-sm text-zinc-100 rounded-lg md:hidden hover:bg-zinc-200/[0.5] focus:outline-none focus:ring-2 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-600"
@@ -13,29 +15,43 @@
 					clip-rule="evenodd"></path>
 			</svg>
 		</button>
-		<div class="hidden w-full md:block md:w-auto font-sans"/>
-		<ul
-			class="flex mr-8 flex-col drop-shadow-xl p-4 mt-4 rounded-lg bg-opacity-10 bg-zinc-100/[1.0] dark:bg-zinc-800/[0.25] md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+		<div class="hidden w-full md:block md:w-auto font-sans" />
+		<ul id="nav-container"
+			class="flex mr-0 flex-col drop-shadow-xl p-4 mt-4 rounded-lg bg-opacity-10 bg-zinc-100/[1.0] dark:bg-zinc-800/[0.25] md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
 			{{ range .Site.Menus.main }}
 			<li class="my-auto">
 				<a href=" {{ .URL }}" class="nav-link {{ if $.IsMenuCurrent "main" . }} nav-link-selected"
 					aria-current="page{{ end}}"> {{.Name}} </a>
-			</li> 
+			</li>
 			{{ end }}
-			<div class="flex items-center font-lato w-6 h-6 group cursor-pointer duration-[0s]" onclick="toggleDarkMode()" >
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fill-current text-zinc-800/[0.5] duration-[0s] transition-none" fill="currentColor ">
-					<!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-					<path class="transition-none"
-						d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z" />
-				</svg>
+			<div class="flex items-center font-lato w-6 h-6 group cursor-pointer duration-[0s]"
+				onclick="toggleDarkMode()">
+				<i class="material-icons dark:text-zinc-50 text-zinc-700">dark_mode</i>
 			</div>
 		</ul>
 	</div>
 	</div>
 </nav>
 
-<style>
-.group:hover .fill-current {
-	fill: rgb(39 39 42 / 1.0);
-}
-</style>
+<script defer>
+	document.getElementById('nav-app').classList.add('nav-rested');
+
+	if (localStorage.getItem('darkMode') == 'true') {
+		document.body.classList.add('dark');
+	} else {
+		document.body.classList.remove('dark');
+	}
+	// Make the nav apply a class after scrolling past 8rem
+	window.addEventListener('scroll', function () {
+		const nav = document.getElementById('nav-app');
+		const title = document.getElementById('title');
+		const navContainer = document.getElementById('nav-container');
+		if (window.scrollY > 8) {
+			nav.classList.remove('nav-rested');
+			nav.classList.add('nav-scrolled');
+		} else {
+			nav.classList.remove('nav-scrolled')
+			nav.classList.add('nav-rested')
+		}
+	});
+</script>

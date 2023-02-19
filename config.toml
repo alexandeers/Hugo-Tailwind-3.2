@@ -1,7 +1,11 @@
 baseURL = '/'
 languageCode = 'en-us'
 title = 'Alexanders hemsida'
-disableKinds = ["taxonomy","taxonomyTerm"]
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  post = "posts"
 
 sectionPagesMenu = "main"
 
@@ -11,6 +15,10 @@ paginate = 12
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
   [markup.tableOfContents]
     endlevel = 3
     ordered = false
