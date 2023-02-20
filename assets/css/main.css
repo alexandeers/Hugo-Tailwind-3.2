@@ -18,6 +18,10 @@
         @apply transition-colors duration-200;
     }
 
+    html {
+        @apply scroll-pt-28;
+    }
+
     .nav-scrolled {
         /* 
         nav.classList.add('bg-zinc-100/[1]');
@@ -66,7 +70,7 @@
     }
 
     #TableOfContents {
-        @apply text-sm font-sans no-underline sticky top-0 h-min ml-4;
+    @apply text-sm font-sans no-underline sticky top-0 h-min ml-4;
     }
 
     #TableOfContents li {
@@ -104,6 +108,30 @@
     }
 
     .toc-item {
-        @apply dark:text-zinc-500 text-zinc-700;
+        @apply dark:text-zinc-500 text-zinc-700 hover:dark:text-zinc-400 hover:text-zinc-800;
+    }
+
+    .banner-clip {
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+    }
+
+        /* width */
+    ::-webkit-scrollbar {
+        @apply w-3;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        @apply bg-zinc-300;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        @apply bg-zinc-700;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
     }
 }

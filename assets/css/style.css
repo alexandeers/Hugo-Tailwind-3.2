@@ -1142,6 +1142,10 @@ body * {
   transition-duration: 200ms;
 }
 
+html {
+  scroll-padding-top: 7rem;
+}
+
 .nav-scrolled {
   /* 
         nav.classList.add('bg-zinc-100/[1]');
@@ -1394,9 +1398,45 @@ strong {
   color: rgb(63 63 70 / var(--tw-text-opacity));
 }
 
+.toc-item:hover {
+  --tw-text-opacity: 1;
+  color: rgb(39 39 42 / var(--tw-text-opacity));
+}
+
 .dark .toc-item {
   --tw-text-opacity: 1;
   color: rgb(113 113 122 / var(--tw-text-opacity));
+}
+
+.dark .toc-item:hover {
+  --tw-text-opacity: 1;
+  color: rgb(161 161 170 / var(--tw-text-opacity));
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  --tw-bg-opacity: 1;
+  background-color: rgb(212 212 216 / var(--tw-bg-opacity));
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  --tw-bg-opacity: 1;
+  background-color: rgb(63 63 70 / var(--tw-bg-opacity));
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .fixed {
