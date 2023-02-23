@@ -22,6 +22,14 @@
         @apply scroll-pt-28;
     }
 
+    .material-icons-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 700,
+        'GRAD' 0,
+        'opsz' 40
+    }
+
     .nav-scrolled {
         /* 
         nav.classList.add('bg-zinc-100/[1]');
@@ -45,6 +53,14 @@
         @apply py-6 border-zinc-900/[0.1] dark:border-zinc-50/[0.1];
     }
 
+    .nav-rested #title {
+        @apply text-4xl;
+    }
+
+    .nav-container-shadow-none {
+        @apply !drop-shadow-none !shadow-none !bg-none;
+    }
+
     .prompt-tip {
         @apply bg-[#4dbb5f33] pl-2 flex flex-row dark:!text-zinc-400 !text-zinc-900/[0.8] p-[0.1rem] px-5 rounded border-none before:!content-['\e0f0'] before:!font-icons before:my-auto before:p-2 before:px-4 before:text-2xl before:h-full;
     }
@@ -65,16 +81,12 @@
         @apply !transition-all !delay-[0s];
     }
 
-    .nav-rested #title {
-        @apply text-4xl;
-    }
-
     #TableOfContents {
     @apply text-sm font-sans no-underline sticky top-0 h-min ml-4;
     }
 
     #TableOfContents li {
-        @apply list-none m-0 p-0 border-[0px] border-solid !border-zinc-800 dark:border-zinc-900;
+        @apply list-none m-0 p-0 border-[0px] border-solid;
     }
 
     #TableOfContents a {
@@ -104,11 +116,11 @@
     }
 
     .toc-item-selected > a {
-        @apply relative dark:text-zinc-50 text-sky-800 !border-l;
+        @apply relative dark:text-zinc-50 text-zinc-900 !border-l dark:border-zinc-50 border-zinc-900;
     }
 
     .toc-item {
-        @apply dark:text-zinc-500 text-zinc-700 hover:dark:text-zinc-400 hover:text-zinc-800;
+        @apply dark:text-zinc-500 text-zinc-400 hover:dark:text-zinc-400 hover:text-zinc-800;
     }
 
     .banner-clip {

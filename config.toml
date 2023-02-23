@@ -5,7 +5,6 @@ title = 'Alexanders hemsida'
 [taxonomies]
   tag = "tags"
   category = "categories"
-  post = "posts"
 
 sectionPagesMenu = "main"
 

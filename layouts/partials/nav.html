@@ -1,4 +1,4 @@
-<nav id="nav-app" class="px-2 sm:px-4 fixed w-full transition-all z-50">
+<nav id="nav-app" class="fixed w-full transition-all z-50">
 	<div class="container flex flex-wrap items-center justify-between mx-auto">
 		<a href="/" class="flex items-center my-auto">
 			<p id="title"
@@ -15,6 +15,7 @@
 					clip-rule="evenodd"></path>
 			</svg>
 		</button>
+		<!-- <h2 class="text-center justify-between"> {{.Title}} </h2> -->
 		<div class="hidden w-full md:block md:w-auto font-sans" />
 		<ul id="nav-container"
 			class="flex mr-0 flex-col drop-shadow-xl p-4 mt-4 rounded-lg bg-opacity-10 bg-zinc-100/[1.0] dark:bg-zinc-800/[0.25] md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
@@ -30,7 +31,6 @@
 			</div>
 		</ul>
 	</div>
-	</div>
 </nav>
 
 <script defer>
@@ -44,13 +44,16 @@
 	// Make the nav apply a class after scrolling past 8rem
 	window.addEventListener('scroll', function () {
 		const nav = document.getElementById('nav-app');
+		const nav_container = document.getElementById('nav-container');
 		const title = document.getElementById('title');
 		const navContainer = document.getElementById('nav-container');
 		if (window.scrollY > 8) {
 			nav.classList.remove('nav-rested');
 			nav.classList.add('nav-scrolled');
+			nav_container.classList.add('nav-container-shadow-none')
 		} else {
 			nav.classList.remove('nav-scrolled')
+			nav_container.classList.remove('nav-container-shadow-none')
 			nav.classList.add('nav-rested')
 		}
 	});

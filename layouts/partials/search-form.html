@@ -1,0 +1,57 @@
+<div class="min-w-full min-h-full mx-auto">
+    <div
+        class="min-h-[40vh] min-w-full prose dark:prose-invert flex place-items-center bg-light-gradient dark:bg-dark-gradient bg-no-repeat bg-top bg-fixed bg-cover" id="banner">
+        <h1 class="mx-auto text-8xl italic text-zinc-100 select-none"> {{.Title}} </h1>
+    </div>
+    <form class="p-4 container mx-auto" id="search"
+    action='{{ with .GetPage "/search" }}{{.Permalink}}{{end}}' method="get">
+        <div class="flex">
+            <label for="search-dropdown" class="mb-2 text-sm font-medium text-zinc-900 sr-only dark:text-white">Your
+                Email</label>
+            <button id="dropdown-button" data-dropdown-toggle="dropdown"
+                class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-zinc-900 bg-zinc-100 border border-zinc-300 rounded-l-lg hover:bg-zinc-200 focus:ring-4 focus:outline-none focus:ring-zinc-100 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:focus:ring-zinc-700 dark:text-white dark:border-zinc-600"
+                type="button">All categories <svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor"
+                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg></button>
+            <div id="dropdown"
+                class="z-10 hidden bg-white divide-y divide-zinc-100 rounded-lg shadow w-44 dark:bg-zinc-700">
+                <ul class="py-2 text-sm text-zinc-700 dark:text-zinc-200" aria-labelledby="dropdown-button">
+                    <li>
+                        <button type="button"
+                            class="inline-flex w-full px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-600 dark:hover:text-white">Mockups</button>
+                    </li>
+                    <li>
+                        <button type="button"
+                            class="inline-flex w-full px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-600 dark:hover:text-white">Templates</button>
+                    </li>
+                    <li>
+                        <button type="button"
+                            class="inline-flex w-full px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-600 dark:hover:text-white">Design</button>
+                    </li>
+                    <li>
+                        <button type="button"
+                            class="inline-flex w-full px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-600 dark:hover:text-white">Logos</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="relative w-full">
+                <input type="search" id="search-dropdown"
+                    class="block p-2.5 w-full z-20 text-sm text-zinc-900 bg-zinc-50 rounded-r-lg border-l-zinc-50 border-l-2 border border-zinc-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-zinc-700 dark:border-l-zinc-700  dark:border-zinc-600 dark:placeholder-zinc-400 dark:text-white dark:focus:border-blue-500"
+                    placeholder="Search..." required>
+                <button type="submit"
+                    class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+1

@@ -6,9 +6,10 @@
 </head>
 
 <body class="dark min-h-screen">
-    <div class="w-full min-h-screen dark:bg-zinc-800 bg-zinc-100">
+    <div class="min-w-full min-h-screen dark:bg-zinc-800 bg-zinc-100">
         {{ partial "nav.html" . }}
         {{ block "main" . }}{{ end }}
+        {{ partial "footer.html" . }}
     </div>
 </body>
 
