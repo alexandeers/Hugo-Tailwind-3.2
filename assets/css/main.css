@@ -19,7 +19,7 @@
     }
 
     html {
-        @apply scroll-pt-28;
+        @apply scroll-pt-5;
     }
 
     .material-icons-outlined {
@@ -36,7 +36,7 @@
         nav.classList.add('dark:bg-zinc-800/[1]');
         nav.classList.add('py-6');
         nav.classList.add('drop-shadow-xl'); */
-        @apply bg-zinc-100/[1] dark:bg-zinc-800/[1] py-4 drop-shadow-xl border-b-2 border-solid border-zinc-600/[0.2] dark:border-zinc-50/[0.05];
+        @apply bg-zinc-100/[1] dark:bg-zinc-900 py-4 drop-shadow-xl border-b-2 border-solid border-zinc-600/[0.2] dark:border-zinc-50/[0.05];
     }
 
     .nav-scrolled #title {
@@ -58,7 +58,7 @@
     }
 
     .nav-container-shadow-none {
-        @apply !drop-shadow-none !shadow-none !bg-none;
+        @apply !drop-shadow-none !shadow-none !bg-none !bg-transparent;
     }
 
     .prompt-tip {
@@ -82,7 +82,7 @@
     }
 
     #TableOfContents {
-    @apply text-sm font-sans no-underline sticky top-0 h-min ml-4;
+    @apply text-sm font-sans no-underline sticky top-0 h-min ml-1;
     }
 
     #TableOfContents li {
@@ -90,7 +90,7 @@
     }
 
     #TableOfContents a {
-        @apply text-base m-0 p-0 px-4 break-all;
+        @apply text-base m-0 p-0 px-4 break-all border-l-2 border-zinc-800/10 dark:border-zinc-800;
     }
 
     #TableOfContents li > ul > li > a {
@@ -116,7 +116,7 @@
     }
 
     .toc-item-selected > a {
-        @apply relative dark:text-zinc-50 text-zinc-900 !border-l dark:border-zinc-50 border-zinc-900;
+        @apply relative dark:text-zinc-50 text-zinc-900 !border-l-2 dark:!border-zinc-50 !border-zinc-900;
     }
 
     .toc-item {

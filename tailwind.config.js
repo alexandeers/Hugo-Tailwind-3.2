@@ -1,8 +1,6 @@
-const colors = require('tailwindcss/colors')
-
 module.exports = {
-  content: ['./layouts/**/*.html', './content/**/*.md'],
   darkMode: 'class',
+  content: ['./layouts/**/*.html', './content/**/*.md'],
   theme: {
     extend: {
       typography: {
@@ -31,5 +29,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require('tailwindcss/colors')
   ],
 }
