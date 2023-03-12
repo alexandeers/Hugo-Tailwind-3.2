@@ -16,15 +16,6 @@
 </html>
 
 <script>
-    var vueApp = Vue.createApp({
-        data() {
-            return {
-                display: 'Salut Lumeeeeee'
-            }
-        },
-        delimiters: ['[[', ']]'],
-    }).mount('#nav-app');
-
     function toggleDarkMode() {
         document.body.classList.toggle('dark');
     }
@@ -38,6 +29,22 @@
     if (localStorage.getItem('darkMode') === 'true') {
         document.body.classList.add('dark');
     }
-
-    toggleDarkMode();
 </script>
+
+<style>
+    .material-symbols-rounded {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+    }
+
+    .filled {
+        font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48 !important;
+    }
+</style>

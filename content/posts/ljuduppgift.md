@@ -1,11 +1,12 @@
 ---
 title: "Ljuduppgift"
-date: 2023-02-14T14:06:49+01:00
+date: 2022-12-14T14:06:49+01:00
 draft: false
 type: post
 description: Egen musik för Kung Fu Panda scen
 tags: [uppgift]
 categories: [digitaltskapande]
+banner: https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/26a9c8b3-5039-41d7-aebc-e5a818ce51b3/dejgb80-46e2a7a9-a130-4a2d-b741-2d2312e4d4db.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzI2YTljOGIzLTUwMzktNDFkNy1hZWJjLWU1YTgxOGNlNTFiM1wvZGVqZ2I4MC00NmUyYTdhOS1hMTMwLTRhMmQtYjc0MS0yZDIzMTJlNGQ0ZGIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Ehj9V9G89mY8gKKVnJbyPAguqMeNz7pz3eksvDbByiM
 ---
 # Introduktion - Oogway Ascends
 Jag har valt att göra om ljudet i "Oogway Ascends"-scenen i **Kung Fu Panda 1**.  

@@ -1,39 +1,24 @@
 {{ define "main" }}
-<div
-    class="min-h-[40vh] min-w-full prose dark:prose-invert flex place-items-center bg-light-gradient dark:bg-dark-gradient bg-no-repeat" id="banner">
+<div class="min-h-[20vh] min-w-full prose dark:prose-invert flex place-items-center bg-light-gradient dark:bg-dark-gradient bg-no-repeat"
+    id="banner">
     <h1 class="mx-auto text-8xl italic text-zinc-100 select-none"> {{ .Type }} </h1>
 </div>
 
-<div class="w-full flex flex-col gap-8 py-8">
-    {{ range .Data.Pages }}
-    <div
-        class="flex flex-col items-center justify-center p-10 mx-auto md:w-1/2 w-2/3 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-900/[0.7] hover:dark:bg-zinc-900/[1.0] rounded">
-        <div class="flex flex-col items-start justify-start w-full h-full max-w-4xl px-4 py-0 mx-auto space-y-4">
-            <div class="flex md:flex-row flex-col w-full">
-                <a href="{{ .Permalink }}"
-                    class="text-4xl underline font-bold drop-shadow-sm text-zinc-800 dark:text-zinc-100 italic ml-0 mr-auto">{{ .Title }}</a>
-
-                    <p
-                    class="text 4xl font-normal underline italic text-zinc-600 dark:text-zinc-500 mr-0 ml-auto my-auto">
-                    {{ .PublishDate.Format "January 2, 2006" }} </p>
-                    <i class="material-icons my-auto ml-3 mr-0 text-zinc-600">calendar_month</i>
+<div class="w-full flex flex-col gap-4 py-8 bg-zinc-900">
+    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+    <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}" class="w-fit mx-auto text-center text-4xl my-2 dark:text-zinc-50 text-zinc-800 font-lato font-extrabold relative hover:underline">
+        
+        {{ $name }} 
+    </a>
+        {{ range $taxonomy.Pages }}
+        <a href="{{ .Permalink }} "
+            class="flex relative overflow-hidden !max-w-2xl mx-auto w-full flex-col bg-white border border-zinc-200 rounded-lg shadow dark:shadow-black/25 dark:shadow-lg md:flex-row md:max-w-xl hover:bg-zinc-100 dark:border-zinc-700/50 dark:bg-zinc-800 dark:hover:bg-zinc-700">
+            <div class="flex flex-col p-4 leading-normal bg-transparent w-full relative">
+                <h5 class="my-0 text-1xl font-bold tracking-tight text-zinc-900/90 dark:text-white"> {{.Title}} </h5>
+                <p class="mt-0 font-normal text-zinc-700 text-sm dark:text-zinc-400 mb-0"> {{.Description}} </p>
             </div>
-            <div class="tags-list my-auto flex">
-                {{- with .Params.categories -}}
-                {{- if ge (len .) 1 -}}
-                {{- range . -}}
-                <i class="material-icons my-auto mx-2 dark:text-zinc-500"
-                    style="fill: black !important;">folder_open</i>
-                <a class="italic font-normal my-auto text-zinc-500 dark:text-zinc-500"
-                    href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}/">{{ . }}</a>
-                {{ end -}}
-                {{- end -}}
-                {{- end -}}
-            </div>
-            <!-- <p class="text-base text-zinc-500">{{ .Summary | truncate 200 }}</p> -->
-            <p class="text-base text-zinc-600 dark:text-zinc-400 pl-0">{{ .Description }}</p>
-        </div>
-    </div>
+        </a>
+        {{ end }}
     {{ end }}
 </div>
 {{ end }}

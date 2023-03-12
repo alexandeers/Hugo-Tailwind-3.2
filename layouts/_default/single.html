@@ -8,24 +8,39 @@
 
   <div class="bg-zinc-100 dark:bg-zinc-900/[1] bg-cover bg-repeat grid xl:grid-cols-8 sm:grid-cols-1">
     <div class="prose mx-auto dark:prose-invert col-span-2 prose-zinc min-w-full px-2 h-full flex flex-col">
-      <h2 class="mx-auto !mr-0 m-4 mt-2 mb-2 text-4xl text-zinc-200 w-fit text-right"> Information </h2>
+      <h2 class="mx-auto !mr-0 m-4 mt-2 mb-2 text-4xl dark:text-zinc-200 text-zinc-700 w-fit text-right"> Information
+      </h2>
       <div class="sticky top-24 flex flex-col gap-2">
-        <div class="w-fit h-min dark:bg-zinc-800 bg-zinc-200 rounded px-4 py-2 dark:text-zinc-400 text-zinc-500 mx-auto mr-0"> <span
-          class="dark:text-white text-zinc-900"> {{ .WordCount }} </span> words
+        <div
+          class="w-fit h-min dark:bg-zinc-800 bg-zinc-200 rounded px-4 py-2 dark:text-zinc-400 text-zinc-500 mx-auto mr-0">
+          <span class="dark:text-white text-zinc-900"> {{ .WordCount }} </span> words
         </div>
-        <div class="w-fit h-min dark:bg-zinc-800  bg-zinc-200 rounded px-4 py-2 dark:text-zinc-400 text-zinc-500 mx-auto mr-0"> <span
-          class="dark:text-zinc-50 text-zinc-900"> {{ div .WordCount 200 }} </span> min
+        <div
+          class="w-fit h-min dark:bg-zinc-800  bg-zinc-200 rounded px-4 py-2 dark:text-zinc-400 text-zinc-500 mx-auto mr-0">
+          <span class="dark:text-zinc-50 text-zinc-900"> {{ .ReadingTime }} </span> min to read
         </div>
-        <hr class="sticky border-2 border-solid border-zinc-200 dark:border-zinc-400/[0.1] m-0">
+        <hr class="sticky border border-solid border-zinc-200 dark:border-zinc-400/[0.1] m-0">
       </div>
-      <i onclick="ScrollToTop()" class="sticky material-icons select-none cursor-pointer bottom-8 mx-auto my-auto mr-0 mb-0 bg-zinc-300 dark:bg-zinc-800 p-2 text-4xl rounded opacity-50 hover:opacity-100 hover:scale-[102%] transition-all border-2 border-solid dark:border-zinc-400/[0.0] border-zinc-500/0 hover:-translate-y-1" id="up-arrow">keyboard_double_arrow_up</i>
+      <footer class="sticky bottom-0 mx-auto my-auto mr-0 mb-0 flex w-full justify-between">
+        <i onclick="GoToPosts()"
+          class="material-icons select-none cursor-pointer bg-zinc-300 dark:bg-zinc-800 p-2 text-4xl rounded opacity-50 hover:opacity-100 hover:scale-[102%] transition-all border-2 border-solid dark:border-zinc-400/[0.0] border-zinc-500/0 hover:-translate-y-1 my-auto flex group z-50"
+          id="up-arrow">arrow_back <span class="tooltip text-base font-normal top-0 left-0 ">Go to <b>posts</b></span>
+        </i>
+        <i onclick="ScrollToTop()"
+          class="material-icons select-none cursor-pointer bg-zinc-300 dark:bg-zinc-800 p-2 text-4xl rounded opacity-50 hover:opacity-100 hover:scale-[102%] transition-all border-2 border-solid dark:border-zinc-400/[0.0] border-zinc-500/0 hover:-translate-y-1 relative group z-50 text-center mb-0"
+          id="up-arrow">keyboard_double_arrow_up <span
+            class="tooltip text-center text-base font-normal top-0 left-1/2 -translate-x-1/2 inline-block mx-auto w-fit">Scroll
+            <b>up</b></span></i>
+      </footer>
     </div>
     <div id="middle-content"
-      class="p-8 shadow-xl z-50 border-2 border-solid border-zinc-900/[0.1] dark:border-zinc-400/[0.1] rounded prose prose-zinc dark:prose-p:text-zinc-400 prose-p:text-zinc-600 prose-blockquote:text-zinc-500 prose-blockquote:font-normal prose-blockquote:!not-italic font-sans mx-auto dark:prose-invert col-span-4 bg-zinc-50 dark:bg-zinc-800 max-w-full m-2">
+      class="p-8 shadow-xl !relative !z-40 border-2 border-solid border-zinc-900/[0.1] dark:border-zinc-400/[0.1] rounded prose prose-zinc dark:prose-p:text-zinc-400 prose-p:text-zinc-600 prose-blockquote:text-zinc-500 prose-blockquote:font-normal prose-blockquote:!not-italic font-sans mx-auto dark:prose-invert col-span-4 bg-zinc-50 dark:bg-zinc-800 max-w-full m-2">
       {{ .Content }}
     </div>
-    <div id="toc-parent" class="prose prose-zinc mx-auto dark:prose-invert col-span-2 h-full overflow-visible min-w-full visible">
-      <h2 class="mx-auto text-left !ml-4 mr-4 mt-2 mb-0 text-4xl text-zinc-200 w-fit"> Table of Contents </h2>
+    <div id="toc-parent"
+      class="prose prose-zinc mx-auto dark:prose-invert col-span-2 h-full overflow-visible min-w-full visible">
+      <h2 class="mx-auto text-left !ml-4 mr-4 mt-2 mb-0 text-4xl dark:text-zinc-200 text-zinc-700 w-fit"> Table of
+        Contents </h2>
       <div id="toc" class="sticky top-24 h-min m-2">
         {{ .TableOfContents }}
       </div>
@@ -76,6 +91,11 @@
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
+
+  //Function to go to /posts
+  function GoToPosts() {
+    window.location.href = "/posts";
+  }
 </script>
 
 <style>
@@ -85,7 +105,7 @@
 
   #up-arrow {
     margin-bottom: 0.5rem;
-    bottom: 0.5rem;
+    /* bottom: 0.5rem; */
   }
 </style>
 {{end}}

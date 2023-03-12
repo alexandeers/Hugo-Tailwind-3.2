@@ -1,0 +1,63 @@
+{{ define "main" }}
+{{ $posts := where .Site.RegularPages "Type" "post" }}
+{{ $filteredPosts := where $posts "Section" "posts" }}
+
+{{ $paginator := .Paginate $filteredPosts }}
+
+<div
+    class="min-h-[20vh] min-w-full prose dark:prose-invert flex place-items-center bg-light-gradient dark:bg-dark-gradient bg-no-repeat" id="banner">
+    <h1 class="mx-auto text-8xl italic text-zinc-100 select-none"> {{ .Title }} </h1>
+</div>
+
+<div class="grid grid-cols-3 w-full">
+    <div class="w-full m-4">
+        <div class="container m-2">
+            <h1 class="text-3xl my-2 font-lato font-bold text-zinc-700">Categories</h1>
+            <ul class="list-disc list-inside">
+                {{ range .Site.Taxonomies.categories }}
+                <a href="{{ .Page.Permalink }}" class="hover:underline italic p-1 px-2 border border-solid rounded-xl text-zinc-500 border-zinc-500">{{ .Page.Title }}</a>
+                {{ end }}
+        </div>
+        <div class="container m-2 mt-8">
+            <h1 class="text-3xl my-2 font-lato font-bold text-zinc-700">Tags</h1>
+            <ul class="list-disc list-inside">
+                {{ range .Site.Taxonomies.tags }}
+                <a href="{{ .Page.Permalink }}" class="hover:underline italic p-1 px-2 border border-solid rounded-xl text-zinc-500 border-zinc-500">{{ .Page.Title }}</a>
+                {{ end }}
+        </div>
+    </div>
+    <div class="w-full flex flex-col gap-8 py-8">
+        {{ range $paginator.Pages }}
+        <div
+            class="flex flex-col items-center justify-center p-7 mx-auto w-full bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-900/[0.7] hover:dark:bg-zinc-900/[1.0] rounded">
+            <div class="flex flex-col items-start justify-start w-full h-full max-w-4xl px-4 py-0 mx-auto space-y-4">
+                <div class="flex md:flex-row flex-col w-full">
+                    <a href="{{ .Permalink }}"
+                        class="text-4xl underline font-bold drop-shadow-sm text-zinc-800 dark:text-zinc-100 italic ml-0 mr-auto">{{ .Title }}</a>
+
+                        <p
+                        class="text 4xl font-normal underline italic text-zinc-600 dark:text-zinc-500 mr-0 ml-auto my-auto">
+                        {{ .PublishDate.Format "January 2, 2006" }} </p>
+                        <i class="material-icons my-auto ml-3 mr-0 text-zinc-600">calendar_month</i>
+                </div>
+                <div class="tags-list my-auto flex">
+                    {{- with .Params.categories -}}
+                    {{- if ge (len .) 1 -}}
+                    {{- range . -}}
+                    <i class="material-icons my-auto mx-2 dark:text-zinc-500"
+                        style="fill: black !important;">folder_open</i>
+                    <a class="italic font-normal my-auto text-zinc-500 dark:text-zinc-500"
+                        href="{{ $.Site.BaseURL }}categories/{{ . | urlize }}/">{{ . }}</a>
+                    {{ end -}}
+                    {{- end -}}
+                    {{- end -}}
+                </div>
+                <!-- <p class="text-base text-zinc-500">{{ .Summary | truncate 200 }}</p> -->
+                <p class="text-base text-zinc-600 dark:text-zinc-400 pl-0">{{ .Description }}</p>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    <div> DÅ </div>
+</div>
+{{ end }}

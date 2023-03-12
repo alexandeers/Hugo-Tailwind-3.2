@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Lang }}" class="dark:bg-zinc-800 bg-zinc-800 scroll-smooth">
+
+<head>
+    {{ partial "head.html" . }}
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body class="dark min-h-screen">
+    <div class="min-w-full min-h-screen dark:bg-zinc-900 bg-zinc-100 flex flex-col">
+        {{ partial "nav.html" . }}
+
+        <div class="min-h-[20vh] min-w-full prose dark:prose-invert flex place-items-center bg-light-gradient dark:bg-dark-gradient bg-no-repeat bg-top bg-fixed bg-cover"
+            id="banner">
+            <h1 class="mx-auto text-8xl italic text-zinc-100 select-none"> {{.Title}} </h1>
+        </div>
+
+        <div id="app" class="flex flex-col items-center justify-center p-2">
+            <!-- <ul class="flex flex-col items-center justify-center">
+                <li class="dark:bg-zinc-900 p-2 m-2 w-full flex flex-row" v-for="player in scoreboard" :key="player.id">
+                    <p class="text-2xl text-zinc-100 mx-auto ml-0"> [[player.name]]: </p>
+                    <p class="text-2xl text-zinc-100 mx-auto mr-0"> [[player.points]] </p>
+                </li>
+            </ul> -->
+
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left text-zinc-500 dark:text-zinc-400">
+                    <caption
+                        class="p-5 text-lg font-semibold text-left text-zinc-900 bg-white dark:text-white dark:bg-zinc-800">
+                        Leaderboard
+                        <p class="mt-1 text-sm font-normal text-zinc-500 dark:text-zinc-400">Det här är topplistan för
+                            mitt spel, som är utvecklat inom gymnasiearbetet.</p> 
+                    </caption>
+                    <thead class="text-xs text-zinc-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-zinc-400">
+                        <tr>
+                            <th @click="sort('#')" scope="col" class="px-6 py-3 sortable cursor-pointer hover:dark:bg-zinc-600 hover:dark:text-zinc-50">
+                                #
+                            </th>
+                            <th @click="sort('name')" scope="col" class="px-6 py-3 sortable cursor-pointer hover:dark:bg-zinc-600 hover:dark:text-zinc-50">
+                                Name
+                            </th>
+                            <th @click="sort('level')" scope="col" class="px-6 py-3 sortable cursor-pointer hover:dark:bg-zinc-600 hover:dark:text-zinc-50">
+                                Level
+                            </th>
+                            <th @click="sort('kills')" scope="col" class="px-6 py-3 sortable cursor-pointer hover:dark:bg-zinc-600 hover:dark:text-zinc-50">
+                                Kills
+                            </th>
+                            <th @click="sort('time_alive')" scope="col" class="px-6 py-3 sortable cursor-pointer hover:dark:bg-zinc-600 hover:dark:text-zinc-50">
+                                Time
+                            </th>
+                            <th scope="col" @click="sort('points')"
+                                class="px-6 py-3 sortable text-white font-extrabold bg-light-gradient dark:bg-dark-gradient cursor-pointer">
+                                Score
+                            </th>
+                            <!-- <th scope="col" class="px-6 py-3">
+                                <span class="sr-only">Edit</span>
+                            </th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(player, index) in sortedPlayers" :key="index"
+                            class="bg-white border-b dark:bg-zinc-800 dark:border-zinc-700">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-zinc-900 whitespace-nowrap dark:text-white">
+                                [[player.rank]]
+                            </th>
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-zinc-900 whitespace-nowrap dark:text-white">
+                                [[player.name]]
+                            </th>
+                            <td class="px-6 py-4">
+                                [[player.level]]
+                            </td>
+                            <td class="px-6 py-4">
+                                [[player.kills]]
+                            </td>
+                            <td class="px-6 py-4">
+                                [[ convertTime(player.time_alive) ]]
+                            </td>
+                            <td class="px-6 py-4">
+                                [[player.points]]
+                            </td>
+                            <!-- <td class="px-6 py-4 text-right">
+                                <a href="#"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            </td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {{ partial "footer.html" . }}
+    </div>
+</body>
+
+</html>
+
+<style>
+.sortable.desc:after {
+    content: '\25B2';
+}
+.sortable.asc:after {
+    content: '\25BC';
+}
+
+.sortable {
+    position: relative;
+}
+</style>
+
+<script>
+    //Make a toggleDarkMode() that also saves to local storage
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+    }
+
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<script type="module">
+const app = Vue.createApp({
+  data() { 
+    return {
+        scoreboard: [],
+        currentSort:'points',
+        currentSortDir:'desc'
+    }
+  },
+  async created() {
+    this.scoreboard = await fetchPlayers();
+    this.scoreboard.forEach((player, index) => {
+        player.rank = index + 1;
+    });
+  },
+    methods: {
+        //Method to convert total seconds to minutes and seconds and return as a string with a zero in front of seconds if minutes or seconds is less than 10
+        convertTime: function (totalSeconds) {
+            let minutes = Math.floor(totalSeconds / 60);
+            let seconds = totalSeconds - minutes * 60;
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+            return minutes + ":" + seconds;
+        },
+        sort:function(s) {
+            //if s == current sort, reverse
+            if(s === this.currentSort) {
+                this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
+            }
+            this.currentSort = s;
+
+            //Add a class to the table header to show which column is sorted
+            let ths = document.querySelectorAll('th');
+            ths.forEach(th => {
+                th.classList.remove('asc');
+                th.classList.remove('desc');
+            });
+            
+            //Add the class to the current sort
+            document.querySelector(`th[sort="${s}"]`).classList.add(this.currentSortDir);
+        }
+    },
+    computed:{
+        sortedPlayers:function() {
+            return this.scoreboard.sort((a,b) => {
+            let modifier = 1;
+            if(this.currentSortDir === 'desc') modifier = -1;
+                if(a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
+                if(a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
+                return 0;
+            });
+        }
+    },
+  delimiters: ['[[', ']]'] // set the delimiters to [[ and ]]
+});
+
+//Supabase
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+const supabaseUrl = 'https://jcbdlgpimiphcslpooep.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjYmRsZ3BpbWlwaGNzbHBvb2VwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzUyNTEzNzQsImV4cCI6MTk5MDgyNzM3NH0.y57xcSi0s5oL7GVNnW7ciqlyWcLfr3LtloZWUQ5y4PQ'
+const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+const fetchPlayers = async () => {
+    const {
+        data,
+        error
+    } = await supabase.from("Players").select("*");
+    if (error) {
+        console.log("error", error);
+    } else {
+        console.log("data", data);
+        const playersArray = Object.keys(data).map((key) => data[key]);
+        const sortedPlayers = playersArray.sort((a, b) => b.points - a.points);
+        return sortedPlayers;
+    }
+};
+
+app.mount('#app');
+</script>
