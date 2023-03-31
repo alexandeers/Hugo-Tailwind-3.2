@@ -28,7 +28,7 @@
                     <caption
                         class="p-5 text-lg font-semibold text-left text-zinc-900 bg-white dark:text-white dark:bg-zinc-800">
                         Leaderboard
-                        <p class="mt-1 text-sm font-normal text-zinc-500 dark:text-zinc-400">Det här är topplistan för
+                        <p class="mt-1 text-sm font-normal mb-6 relative text-zinc-500 dark:text-zinc-400">Det här är topplistan för
                             mitt spel, som är utvecklat inom gymnasiearbetet.</p> 
                     </caption>
                     <thead class="text-xs text-zinc-700 uppercase bg-zinc-50 dark:bg-zinc-700 dark:text-zinc-400">
@@ -48,7 +48,7 @@
                             <th @click="sort('time_alive')" scope="col" class="px-6 py-3 sortable cursor-pointer hover:dark:bg-zinc-600 hover:dark:text-zinc-50">
                                 Time
                             </th>
-                            <th scope="col" @click="sort('points')"
+                            <th scope="col" @click="sort('score')"
                                 class="px-6 py-3 sortable text-white font-extrabold bg-light-gradient dark:bg-dark-gradient cursor-pointer">
                                 Score
                             </th>
@@ -78,7 +78,7 @@
                                 [[ convertTime(player.time_alive) ]]
                             </td>
                             <td class="px-6 py-4">
-                                [[player.points]]
+                                [[player.score]]
                             </td>
                             <!-- <td class="px-6 py-4 text-right">
                                 <a href="#"
@@ -125,7 +125,7 @@ const app = Vue.createApp({
   data() { 
     return {
         scoreboard: [],
-        currentSort:'points',
+        currentSort:'score',
         currentSortDir:'desc'
     }
   },
@@ -134,6 +134,16 @@ const app = Vue.createApp({
     this.scoreboard.forEach((player, index) => {
         player.rank = index + 1;
     });
+    
+    const Players = supabase.channel('custom-all-channel')
+    .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'players' },
+        (payload) => {
+            this.refreshPlayers();
+        }
+    )
+    .subscribe()
   },
     methods: {
         //Method to convert total seconds to minutes and seconds and return as a string with a zero in front of seconds if minutes or seconds is less than 10
@@ -164,6 +174,13 @@ const app = Vue.createApp({
             
             //Add the class to the current sort
             document.querySelector(`th[sort="${s}"]`).classList.add(this.currentSortDir);
+        },
+
+        refreshPlayers: async function() {
+            this.scoreboard = await fetchPlayers();
+            this.scoreboard.forEach((player, index) => {
+                player.rank = index + 1;
+            });
         }
     },
     computed:{
@@ -182,21 +199,21 @@ const app = Vue.createApp({
 
 //Supabase
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-const supabaseUrl = 'https://jcbdlgpimiphcslpooep.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjYmRsZ3BpbWlwaGNzbHBvb2VwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzUyNTEzNzQsImV4cCI6MTk5MDgyNzM3NH0.y57xcSi0s5oL7GVNnW7ciqlyWcLfr3LtloZWUQ5y4PQ'
+const supabaseUrl = 'https://xplusqjndiiwtmancydi.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhwbHVzcWpuZGlpd3RtYW5jeWRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzk0NzM5NzMsImV4cCI6MTk5NTA0OTk3M30.3cihXKjx87hPyp9mUtoRM5L99xoN16rwD4r0usQvbxE'
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 const fetchPlayers = async () => {
     const {
         data,
         error
-    } = await supabase.from("Players").select("*");
+    } = await supabase.from("players").select("*");
     if (error) {
         console.log("error", error);
     } else {
         console.log("data", data);
         const playersArray = Object.keys(data).map((key) => data[key]);
-        const sortedPlayers = playersArray.sort((a, b) => b.points - a.points);
+        const sortedPlayers = playersArray.sort((a, b) => b.score - a.score);
         return sortedPlayers;
     }
 };
