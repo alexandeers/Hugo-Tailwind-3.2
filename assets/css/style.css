@@ -1149,6 +1149,7 @@ html {
 blockquote {
   /* //Turn off the quotation marks */
   quotes: none;
+  background-color: rgb(24, 24, 27);
 }
 
 .nav-scrolled {
@@ -2514,6 +2515,11 @@ strong {
   --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
 }
 
+.dark .dark\:bg-zinc-1000 {
+  background-color: #18181b;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2337373f' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
 .before\:absolute::before {
   content: var(--tw-content);
   position: absolute;
@@ -2720,10 +2726,6 @@ strong {
 
 .dark .dark\:bg-zinc-900\/\[0\.7\] {
   background-color: rgb(24 24 27 / 0.7);
-}
-
-.dark .dark\:bg-zinc-900\/\[1\] {
-  background-color: rgb(24 24 27 / 1);
 }
 
 .dark .dark\:bg-dark-gradient {
