@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" class="dark:bg-zinc-800 bg-zinc-800 scroll-smooth">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<title> Filmaffisch </title>
+
+
+
+
+  
+  <link rel="stylesheet" href="/css/style.min.css" />
+
+</head>
+
+<body class="dark min-h-screen">
+    <div class="min-w-full min-h-screen dark:bg-zinc-800 bg-zinc-100">
+        <nav id="nav-app" class="fixed w-full transition-all z-30">
+	<div class="container flex flex-wrap items-center justify-between mx-auto">
+		<a href="/" class="flex items-center my-auto">
+			<p id="title"
+				class="italic font-montalt font-extrabold text-zinc-100 my-auto ml-0 drop-shadow-md transition-all">
+				alexander</p>
+		</a>
+		<button data-collapse-toggle="navbar-default" type="button"
+			class="inline-flex mr-8 items-center p-2 ml-3 text-sm text-zinc-100 rounded-lg md:hidden hover:bg-zinc-200/[0.5] focus:outline-none focus:ring-2 focus:ring-zinc-200 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:focus:ring-zinc-600"
+			aria-controls="navbar-default" aria-expanded="false">
+			<svg class="w-12 h-12" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+				xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd"
+					d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+					clip-rule="evenodd"></path>
+			</svg>
+		</button>
+		
+		<div class="hidden w-full md:block md:w-auto font-sans" />
+		<ul id="nav-container"
+			class="flex mr-0 flex-col drop-shadow-xl p-4 mt-4 rounded-lg bg-opacity-10 bg-zinc-100/[1.0] dark:bg-zinc-800/[0.25] md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+			
+			<li class="my-auto">
+				<a href=" /" class="nav-link "> Home </a>
+			</li>
+			
+			<li class="my-auto">
+				<a href=" /articles/" class="nav-link "> Articles </a>
+			</li>
+			
+			<li class="my-auto">
+				<a href=" /scoreboard/" class="nav-link "> GY </a>
+			</li>
+			
+			<div class="flex items-center font-lato w-6 h-6 group cursor-pointer duration-[0s]"
+				onclick="toggleDarkMode()">
+				<i class="material-icons dark:text-zinc-50 text-zinc-700">dark_mode</i>
+			</div>
+		</ul>
+	</div>
+</nav>
+
+<script defer>
+	document.getElementById('nav-app').classList.add('nav-rested');
+
+	if (localStorage.getItem('darkMode') == 'true') {
+		document.body.classList.add('dark');
+	} else {
+		document.body.classList.remove('dark');
+	}
+	
+	window.addEventListener('scroll', function () {
+		const nav = document.getElementById('nav-app');
+		const nav_container = document.getElementById('nav-container');
+		const title = document.getElementById('title');
+		const navContainer = document.getElementById('nav-container');
+		if (window.scrollY > 8) {
+			nav.classList.remove('nav-rested');
+			nav.classList.add('nav-scrolled');
+			nav_container.classList.add('nav-container-shadow-none')
+		} else {
+			nav.classList.remove('nav-scrolled')
+			nav_container.classList.remove('nav-container-shadow-none')
+			nav.classList.add('nav-rested')
+		}
+	});
+</script>
+        
+<div class="min-w-full min-h-full mx-auto">
+  <div
+    class="min-h-[30vh] min-w-full prose dark:prose-invert flex place-items-center bg-light-gradient dark:bg-dark-gradient bg-no-repeat bg-top bg-fixed bg-cover"
+    id="banner">
+    <h1 class="mx-auto text-8xl italic text-zinc-100 select-none"> Filmaffisch </h1>
+  </div>
+
+  <div class="bg-zinc-100 dark:bg-zinc-900 bg-cover bg-repeat grid xl:grid-cols-8 sm:grid-cols-1">
+    <div class="prose mx-auto dark:prose-invert col-span-2 prose-zinc min-w-full px-2 h-full flex flex-col">
+      <h2 class="mx-auto !mr-0 m-4 mt-2 mb-2 text-4xl dark:text-zinc-200 text-zinc-700 w-fit text-right"> Information
+      </h2>
+      <div class="sticky top-24 flex flex-col gap-2">
+        <div
+          class="w-fit h-min dark:bg-zinc-800 bg-zinc-200 rounded px-4 py-2 dark:text-zinc-400 text-zinc-500 mx-auto mr-0">
+          <span class="dark:text-white text-zinc-900"> 615 </span> words
+        </div>
+        <div
+          class="w-fit h-min dark:bg-zinc-800  bg-zinc-200 rounded px-4 py-2 dark:text-zinc-400 text-zinc-500 mx-auto mr-0">
+          <span class="dark:text-zinc-50 text-zinc-900"> 3 </span> min to read
+        </div>
+        <hr class="sticky border border-solid border-zinc-200 dark:border-zinc-400/[0.1] m-0">
+      </div>
+      <footer class="sticky bottom-0 mx-auto my-auto mr-0 mb-0 flex w-full justify-between">
+        <i onclick="GoToPosts()"
+          class="material-icons select-none cursor-pointer bg-zinc-300 dark:bg-zinc-800 p-2 text-4xl rounded opacity-50 hover:opacity-100 hover:scale-[102%] transition-all border-2 border-solid dark:border-zinc-400/[0.0] border-zinc-500/0 hover:-translate-y-1 my-auto flex group z-50"
+          id="up-arrow">arrow_back <span class="tooltip text-base font-normal top-0 left-0 ">Go to <b>posts</b></span>
+        </i>
+        <i onclick="ScrollToTop()"
+          class="material-icons select-none cursor-pointer bg-zinc-300 dark:bg-zinc-800 p-2 text-4xl rounded opacity-50 hover:opacity-100 hover:scale-[102%] transition-all border-2 border-solid dark:border-zinc-400/[0.0] border-zinc-500/0 hover:-translate-y-1 relative group z-50 text-center mb-0"
+          id="up-arrow">keyboard_double_arrow_up <span
+            class="tooltip text-center text-base font-normal top-0 left-1/2 -translate-x-1/2 inline-block mx-auto w-fit">Scroll
+            <b>up</b></span></i>
+      </footer>
+    </div>
+    <div id="middle-content"
+      class="p-8 shadow-xl w-full !prose-blockquote:after:content-[''] !relative !z-40 border-2 border-solid border-zinc-900/[0.1] dark:border-zinc-400/[0.1] rounded prose prose-zinc dark:prose-p:text-zinc-400 prose-p:text-zinc-600 prose-blockquote:text-zinc-500 prose-blockquote:font-normal prose-blockquote:!not-italic font-sans mx-auto dark:prose-invert col-span-4 bg-zinc-50 dark:bg-zinc-800 max-w-full m-2">
+      <h1 id="arbetsgång">Arbetsgång</h1>
+<h2 id="påbörjandet-av-arbetet"><strong>Påbörjandet av arbetet</strong></h2>
+<p>Den här uppgiften var hyfsat rolig att göra. Det svåra är att hitta på idéer och faktiskt komma igång med arbetet.</p>
+<p>Min första tanke var att göra en rad personer som står i köket, medan en annan person pekar åt dem. Det passar enligt serien och delvis manuset (Peaky Blinders). Grejen var att personen skulle säga åt raden att skärpa till sig och ha ett uppriktigt beteende inför bröllopet. Jag började faktiskt jobba med det men övergav idén efter jag insett att den inte skulle passa bra i formatet av en filmaffisch.</p>
+<p>Därmed började jag tänka lite mer fritt och strävade bort från manuset lite, i alla fall platsmässigt. Egentligen utspelar sig scenen i ett kök, men jag valde att affischen skulle visa ett par i en gazebo under några ekträd med en kyrka i bakgrunden. Rubriken på filmaffischen lyder &ldquo;My Fucking Wedding&rdquo; och det är baserat på vad huvudpersonen säger i manuset.</p>
+<h2 id="arbetsprocess-i-photoshop"><strong>Arbetsprocess i Photoshop</strong></h2>
+<p>Jag började med att få ihop självaste motivet av scenen, vilket är paret i gazebon. Jag letade upp många silhuettbilder på nätet eftersom jag inte är en erfaren ritare och jag är nog säker på att man får använda alla bilder under personligt bruk. Paret, gazebon och katterna är fyra separata bilder som är helt svarta.</p>
+<p>Sedan ville jag ha en liten publik/folksamling, och nu var det viktigt att tänka på <strong>djupet</strong> i bilden. Ett sätt att simulera djup i en monokrom bild är att ha viktiga motiv och förgrundsobjekt i helsvart, medan objekt längre bort och bakgrundsobjekt är vitare. Det får bakgrundsobjekten att verka vara bakom någon sorts dimma, vilket ger intrycket av att de är längre bort.</p>
+<p>Jag letade upp en silhuettbild på en publik med ett par personer med jämna avstånd och duplicerade bilden ett par gånger med olika färger och ordning bland lagrerna för att ge intrycket av att de står längre bort.</p>
+<p>Sedan ville jag lägga till smådetaljer, som var kyrkan, träden, lamporna, katterna, samt dekorationerna i hörnen och längst uppe.</p>
+<p>Tillslut var det dags för texten, och jag laddade ner ett par vintage-typsnitt från nätet som jag tyckte passade ihop och lade över en lätt röktextur med en lagermask över texten för att ge lite extra textur på texten. För ännu mer textur och ännu viktigare, att få till vintage-stilen på hela affischen, lade jag till texturer med repor, samt ett &ldquo;antikt&rdquo; papper med en ett blandningsläge som passade enligt min smak.</p>
+<h2 id="reflektioner"><strong>Reflektioner</strong></h2>
+<p>Jag är väldigt nöjd med slutresultatet. Vintage-stil tycker jag är väldigt fint, och eftersom serien utspelar sig lite längre bak i tiden så valde jag att utgå ifrån det.
+Mitt enda klagomål egentligen är upplösningen på silhuetterna, eftersom man kan lätt märka att vissa objekt, framförallt gazebon är lågupplöst eftersom sådana bilder är hyfsat specifika och är sällsynta. Jag hade också velat lagt till lite mer bakgrundsdetaljer, som ett berg, vilket jag testade också, men det blev inget bra slutresultat av det. Eftersom jag bara kunde använda spannet mellan svart och vitt så var det svårt att få allt att se tydligt ut. Det blev helt enkelt för låg kontrast mellan motivet och bakgrunden. Det allra viktigaste med affischen är just paret, och det ville jag lyfta fram.</p>
+<p>För att få allt att verkligen sitta så är det viktigt att tänka på kontrasten. Publiken ger kontrast och utrymme för texten, medan den tomma bakgrunden ger kontrast och utrymme för paret. Träden längst uppe på bilden bildar en sorts tratt, som jag tycker leder ögonen till paret också på grund av hur stark kontrasten vid paret är.</p>
+<p>Det sista som jag märkte lite för sent var att jag glömde att ha med årstalet då filmen ska släppas.</p>
+
+    </div>
+    <div id="toc-parent"
+      class="prose prose-zinc mx-auto dark:prose-invert col-span-2 h-full overflow-visible min-w-full visible">
+      <h2 class="mx-auto text-left !ml-4 mr-4 mt-2 mb-0 text-4xl dark:text-zinc-200 text-zinc-700 w-fit"> Table of
+        Contents </h2>
+      <div id="toc" class="sticky top-24 h-min m-2">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#arbetsgång">Arbetsgång</a>
+      <ul>
+        <li><a href="#påbörjandet-av-arbetet"><strong>Påbörjandet av arbetet</strong></a></li>
+        <li><a href="#arbetsprocess-i-photoshop"><strong>Arbetsprocess i Photoshop</strong></a></li>
+        <li><a href="#reflektioner"><strong>Reflektioner</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+  </div>
+  
+
+<h3>See Also</h3>
+<ul>
+ 
+ <li><a href="/posts/ljuduppgift/">Ljuduppgift</a></li>
+ 
+ <li><a href="/posts/abstrakt-flyer/">Abstrakt Flyer</a></li>
+ 
+</ul>
+
+</div>
+
+<script>
+  
+  const headers = document.querySelectorAll(
+    '#middle-content h1, #middle-content h2, #middle-content h3, #middle-content h4, #middle-content h5, #middle-content h6'
+  );
+  const tocItems = document.querySelectorAll('#toc a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      if (entry.intersectionRatio > 0) {
+        tocItems.forEach(item => {
+          if (item.getAttribute('href') == '#' + id) {
+            item.classList.add('toc-item-selected');
+            item.classList.remove('toc-item');
+            item.closest('li').classList.add('toc-item-selected')
+            item.closest('li').classList.remove('toc-item');
+          }
+        });
+      } else {
+        tocItems.forEach(item => {
+          if (item.getAttribute('href') == '#' + id) {
+            item.classList.remove('toc-item-selected');
+            item.classList.add('toc-item');
+            item.closest('li').classList.remove('toc-item-selected')
+            item.closest('li').classList.add('toc-item');
+
+          }
+        });
+      }
+    });
+  });
+
+  headers.forEach((header) => {
+    observer.observe(header);
+  });
+
+  
+  function ScrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  function GoToPosts() {
+    window.location.href = "/posts";
+  }
+</script>
+
+<style>
+  .lol {
+    color: #4dbb5f33;
+  }
+
+  #up-arrow {
+    margin-bottom: 0.5rem;
+     
+  }
+</style>
+
+        <footer class="p-4 bg-white sm:p-6 dark:bg-zinc-800 border-t-2 border-solid border-zinc-600/[0.2] dark:border-zinc-50/[0.05] mt-auto mb-0">
+    <div class="container mx-auto">
+        <div class="md:flex md:justify-between">
+            <div class="mb-6 md:mb-0">
+                <a href="#" class="flex items-center">
+                    
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Alexander Sandberg</span>
+                </a>
+            </div>
+            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
+                
+                <div>
+                    <h2 class="mb-6 text-sm font-semibold text-zinc-900 uppercase dark:text-white">SOCIALS</h2>
+                    <ul class="text-zinc-600 dark:text-zinc-400">
+                        <li class="mb-4">
+                            <a href="https://github.com/alexandeers" target="_blank" class="hover:underline ">Github</a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/alexander.sandbergg" target="_blank" class="hover:underline">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+        <hr class="my-6 border-zinc-200 sm:mx-auto dark:border-zinc-700 lg:my-8" />
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <span class="text-sm text-zinc-500 sm:text-center dark:text-zinc-400">© 2023 <a href="#" class="hover:underline">Alexander™</a>. All Rights Reserved.
+            </span>
+            <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+                <a href="#" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                    <span class="sr-only">Instagram page</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+    }
+
+    
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+    }
+
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<style>
+    .material-symbols-rounded {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+    }
+
+    .filled {
+        font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48 !important;
+    }
+</style>

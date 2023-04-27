@@ -12,7 +12,7 @@ banner: /images/SnowyMountains.png
 ___
 ## Presentation som redovisades under skoltid
 *Den har några ändringar anpassad för hemsidan.*
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSygQ50xRromWgMOMKDCqglttn8FtDVn3Q4hLyjpmnehNyYjkgwdfmvq3HhepCLoG6qm8ElZR7F5qWC/embed?start=false&loop=false&delayms=10000" frameborder="0" width="100%" height="auto" style="aspect-ratio: 960/569;" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>  
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSygQ50xRromWgMOMKDCqglttn8FtDVn3Q4hLyjpmnehNyYjkgwdfmvq3HhepCLoG6qm8ElZR7F5qWC/embed?start=false&loop=false&delayms=10000" frameborder="0" width="100%" height="auto" style="aspect-ratio: 16/9;" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>  
 
 ___
 ## Reflektioner
