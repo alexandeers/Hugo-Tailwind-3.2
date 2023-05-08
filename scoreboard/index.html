@@ -78,15 +78,15 @@ const app = Vue.createApp({
 
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-const supabaseUrl = 'https://xplusqjndiiwtmancydi.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhwbHVzcWpuZGlpd3RtYW5jeWRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzk0NzM5NzMsImV4cCI6MTk5NTA0OTk3M30.3cihXKjx87hPyp9mUtoRM5L99xoN16rwD4r0usQvbxE'
+const supabaseUrl = 'https://jcbdlgpimiphcslpooep.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjYmRsZ3BpbWlwaGNzbHBvb2VwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzUyNTEzNzQsImV4cCI6MTk5MDgyNzM3NH0.y57xcSi0s5oL7GVNnW7ciqlyWcLfr3LtloZWUQ5y4PQ'
 const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 const fetchPlayers = async () => {
     const {
         data,
         error
-    } = await supabase.from("players").select("*");
+    } = await supabase.from("Players").select("*");
     if (error) {
         console.log("error", error);
     } else {
